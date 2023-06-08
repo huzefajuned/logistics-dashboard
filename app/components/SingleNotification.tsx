@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { NotificationProps } from "../interface/types";
+import { SingleNotificationProps } from "../interface/types";
 
-const SingleNotification: React.FC<any> = ({ data }: any) => {
+const SingleNotification: React.FC<SingleNotificationProps> = ({
+  data,
+}: any) => {
   console.log("data", data);
   const [mount, setMount] = useState<boolean>(false);
   useEffect(() => {
@@ -12,7 +14,7 @@ const SingleNotification: React.FC<any> = ({ data }: any) => {
   }
   return (
     <>
-      {data.map((entry: NotificationProps) => {
+      {data.map((entry: SingleNotificationProps) => {
         return (
           <div className=" flex flex-row justify-between items-start p-3">
             <div className="flex flex-row items-center">

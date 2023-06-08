@@ -10,16 +10,16 @@ export interface RecentNotificationsProps {
   heading: string;
   title: string;
   icon: React.ReactNode;
-  data: NotificationProps;
+  data: SingleNotificationProps[];
 }
 
-export interface NotificationProps {
+export interface SingleNotificationProps {
   notification_icon: React.ReactNode;
   notification_title: string;
   notification_subtitle: string;
   notification_time: string;
 }
 
-export interface NotificationData {
-  data: NotificationProps;
-}
+// export interface NotificationData {
+//   data: SingleNotificationProps;
+// }

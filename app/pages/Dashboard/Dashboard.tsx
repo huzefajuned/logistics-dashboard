@@ -9,13 +9,15 @@ import SideMenu from "@/app/components/SideMenu";
 import TruckDocuments from "@/app/components/TruckDocuments";
 import {
   CommonHeaderProps,
-  NotificationProps,
+  // NotificationProps,
   RecentNotificationsProps,
+  SingleNotificationProps,
 } from "@/app/interface/types";
 import { MoreOutlined, MessageOutlined } from "@ant-design/icons";
 
 import DashboardHeader from "@/app/components/DashboardHeader";
 
+//dummy-Notifications---
 const notificationsData: any = [
   {
     notification_icon: <MessageOutlined />,
@@ -180,7 +182,6 @@ const RecentNotificationsPropsData: RecentNotificationsProps = {
   title: "View All",
   icon: <MoreOutlined />,
   data: notificationsData,
-  // data:notificationsData[]
 };
 
 const RecentLoadsPropsData: CommonHeaderProps = {
@@ -205,13 +206,6 @@ const DriverDocumentsPropsData: CommonHeaderProps = {
   icon: <MoreOutlined />,
 };
 
-const NotificationPropsData: NotificationProps = {
-  notification_icon: <MessageOutlined />,
-  notification_title: "nam",
-  notification_subtitle: "ss",
-  notification_time: "3:35",
-};
-
 const Dashboard = () => {
   const [mount, setMount] = useState<boolean>(false);
   useEffect(() => {
@@ -229,7 +223,6 @@ const Dashboard = () => {
           <Maps />
           <RecentNotifications
             {...RecentNotificationsPropsData}
-            // {...NotificationPropsData}
           />
           <RecentLoads {...RecentLoadsPropsData} />
           <DriverManagement {...DriverManagementPropsData} />
