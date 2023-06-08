@@ -1,12 +1,20 @@
 "use client";
+import React, { useEffect, useState } from "react";
+
 import Image from "next/image";
-import React from "react";
 import mapImg from "../../public/images/map.png";
 import { Button } from "antd";
 
 const Maps = () => {
+  const [mount, setMount] = useState<boolean>(false);
+  useEffect(() => {
+    setMount(true);
+  }, []);
+  if (!mount) {
+    return null;
+  }
   return (
-    <div className="w-[585px] max-h-[299px] flex flex-col justify-between relative p-[10px] border-[1px] border-secondary-40 rounded-lg ">
+    <div className="w-[585px] max-h-[299px] flex flex-col justify-between relative border-[1px] border-secondary-40 rounded-lg ">
       <Image
         src={mapImg}
         width={550}

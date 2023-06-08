@@ -3,18 +3,184 @@ import React, { useEffect, useState } from "react";
 import DriverDocuments from "@/app/components/DriverDocuments";
 import DriverManagement from "@/app/components/DriverManagement";
 import Maps from "@/app/components/Maps";
-import RecentNotifications from "@/app/components/RacentNotifications";
+import RecentNotifications from "@/app/components/RecentNotifications";
 import RecentLoads from "@/app/components/RecentLoads";
 import SideMenu from "@/app/components/SideMenu";
 import TruckDocuments from "@/app/components/TruckDocuments";
-import { CommonHeaderProps } from "@/app/interface/types";
-import { MoreOutlined } from "@ant-design/icons";
+import {
+  CommonHeaderProps,
+  NotificationProps,
+  RecentNotificationsProps,
+} from "@/app/interface/types";
+import { MoreOutlined, MessageOutlined } from "@ant-design/icons";
+
 import DashboardHeader from "@/app/components/DashboardHeader";
 
-const RecentNotificationsPropsData: CommonHeaderProps = {
+const notificationsData: any = [
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "10 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "13 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "15 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "23 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "30 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "15 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "23 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "30 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "15 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "23 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "30 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "15 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "23 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "30 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "15 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "23 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "30 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "15 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "23 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "30 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "15 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "23 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "30 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "15 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "23 min ago",
+  },
+  {
+    notification_icon: <MessageOutlined />,
+    notification_title: "Lorem ipsum dolor sit amet.",
+    notification_subtitle: "At vero eos et accusam et justo duo dolores ete.",
+    notification_time: "30 min ago",
+  },
+];
+
+const RecentNotificationsPropsData: RecentNotificationsProps = {
   heading: "Recent Notification",
   title: "View All",
   icon: <MoreOutlined />,
+  data: notificationsData,
+  // data:notificationsData[]
 };
 
 const RecentLoadsPropsData: CommonHeaderProps = {
@@ -39,6 +205,13 @@ const DriverDocumentsPropsData: CommonHeaderProps = {
   icon: <MoreOutlined />,
 };
 
+const NotificationPropsData: NotificationProps = {
+  notification_icon: <MessageOutlined />,
+  notification_title: "nam",
+  notification_subtitle: "ss",
+  notification_time: "3:35",
+};
+
 const Dashboard = () => {
   const [mount, setMount] = useState<boolean>(false);
   useEffect(() => {
@@ -48,13 +221,16 @@ const Dashboard = () => {
     return null;
   }
   return (
-    <div className="  flex flex-row  max-w-[1440px] w-full max-h-[1090px] h-full">
+    <div className="flex flex-row  max-w-[1440px] w-full max-h-[1090px] h-full">
       <SideMenu />
-      <div className=" pl-[40px]  flex flex-col">
+      <div className=" flex flex-col  pl-[40px] ">
         <DashboardHeader />
         <div className="flex flex-row  flex-wrap gap-[18px]">
           <Maps />
-          <RecentNotifications {...RecentNotificationsPropsData} />
+          <RecentNotifications
+            {...RecentNotificationsPropsData}
+            // {...NotificationPropsData}
+          />
           <RecentLoads {...RecentLoadsPropsData} />
           <DriverManagement {...DriverManagementPropsData} />
           <TruckDocuments {...TruckDocumentsPropsData} />

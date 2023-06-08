@@ -10,14 +10,14 @@ const CommonHeader: React.FC<CommonHeaderProps> = ({
   icon,
 }) => {
   const [mount, setMount] = useState<boolean>(false);
-  useEffect(() => {
+  useEffect(() => { 
     setMount(true);
   }, []);
   if (!mount) {
     return null;
   }
   return (
-    <div className="flex flex-row justify-between items-center text-center">
+    <div className="flex flex-row p-3 justify-between items-center text-center sticky top-0 bg-white">
       <h2 className="text-lg font-bold">{heading}</h2>
       <div className="flex flex-row justify-center items-center text-center">
         <Text className="text-primary-80 font-semibold text-sm cursor-pointer">
