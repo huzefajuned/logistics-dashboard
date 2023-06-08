@@ -1,11 +1,11 @@
-import React from "react";
-
+// CommonHeader.tsx Component Interface---
 export interface CommonHeaderProps {
   heading: string;
   title: string;
   icon: React.ReactNode;
 }
 
+// RecentNotifications.tsx Component Inteface---
 export interface RecentNotificationsProps {
   heading: string;
   title: string;
@@ -13,13 +13,10 @@ export interface RecentNotificationsProps {
   data: SingleNotificationProps[];
 }
 
+// Single Notifications Interface---
 export interface SingleNotificationProps {
-  notification_icon: React.ReactNode;
   notification_title: string;
   notification_subtitle: string;
+  notification_icon?: React.ReactNode;
   notification_time: string;
 }
-
-// export interface NotificationData {
-//   data: SingleNotificationProps;
-// }

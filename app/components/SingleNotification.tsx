@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { SingleNotificationProps } from "../interface/types";
 
-const SingleNotification: React.FC<SingleNotificationProps> = ({
+// SingleNotification---
+// it will only recieves array of notifications containing---
+//{notification_title,notification_subtitle,notification_icon,notification_time}---
+const SingleNotification: React.FC<{ data: SingleNotificationProps[] }> = ({
   data,
-}: any) => {
-  console.log("data", data);
+}) => {
   const [mount, setMount] = useState<boolean>(false);
   useEffect(() => {
     setMount(true);
@@ -14,34 +16,40 @@ const SingleNotification: React.FC<SingleNotificationProps> = ({
   }
   return (
     <>
-      {data.map((entry: SingleNotificationProps) => {
+      {data.map((entry: SingleNotificationProps, index: number) => {
+        const {
+          notification_title,
+          notification_subtitle,
+          notification_icon,
+          notification_time,
+        } = entry; //  Destructring && assingning value---
         return (
-          <div className=" flex flex-row justify-between items-start p-3">
+          <div
+            key={index}
+            className=" flex flex-row justify-between items-start p-3"
+          >
             <div className="flex flex-row items-center">
-              <p className="bg-[#FF9900] w-[40px] h-[40px] rounded-full m-auto p-1 ">
-                {entry.notification_icon}
-                {/* <MessageOutlined className="text-xl font-light text-primary-50  " /> */}
-              </p>
+              <div className="bg-[#FF9900] w-[40px] h-[40px] rounded-full m-auto p-1 ">
+                {notification_icon}
+              </div>
               <div className=" flex flex-col  text-left ml-2">
                 <p className="font-semibold text-sm text-secondary tracking-wide">
-                  {entry.notification_title}
+                  {notification_title}
                 </p>
                 <p className=" font-light text-xs tracking-tighter text-secondary-70 ">
-                  {entry.notification_subtitle}
+                  {notification_subtitle}
                 </p>
               </div>
             </div>
             <div className="mr-1 truncate ">
               <p className="font-light text-xs  text-left tracking-tighter text-secondary-70">
-                {entry.notification_time}
+                {notification_time}
               </p>
             </div>
           </div>
         );
       })}
     </>
-
-    // </div>
   );
 };
 

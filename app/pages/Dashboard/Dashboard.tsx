@@ -9,7 +9,6 @@ import SideMenu from "@/app/components/SideMenu";
 import TruckDocuments from "@/app/components/TruckDocuments";
 import {
   CommonHeaderProps,
-  // NotificationProps,
   RecentNotificationsProps,
   SingleNotificationProps,
 } from "@/app/interface/types";
@@ -18,7 +17,7 @@ import { MoreOutlined, MessageOutlined } from "@ant-design/icons";
 import DashboardHeader from "@/app/components/DashboardHeader";
 
 //dummy-Notifications---
-const notificationsData: any = [
+const notificationsData: SingleNotificationProps[] = [
   {
     notification_icon: <MessageOutlined />,
     notification_title: "Lorem ipsum dolor sit amet.",
@@ -221,9 +220,7 @@ const Dashboard = () => {
         <DashboardHeader />
         <div className="flex flex-row  flex-wrap gap-[18px]">
           <Maps />
-          <RecentNotifications
-            {...RecentNotificationsPropsData}
-          />
+          <RecentNotifications {...RecentNotificationsPropsData} />
           <RecentLoads {...RecentLoadsPropsData} />
           <DriverManagement {...DriverManagementPropsData} />
           <TruckDocuments {...TruckDocumentsPropsData} />
