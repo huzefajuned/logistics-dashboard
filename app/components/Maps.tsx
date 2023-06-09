@@ -14,7 +14,7 @@ const Maps = () => {
     return null;
   }
   return (
-    <div className="w-[585px] max-h-[299px] flex flex-col justify-between relative border-[1px] border-secondary-40 rounded-lg ">
+    <div className="w-[585px] max-h-[299px] flex flex-col justify-between relative border-[1px] border-secondary-40 rounded-lg dark:border-none ">
       <Image
         src={mapImg}
         width={550}

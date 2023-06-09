@@ -33,16 +33,16 @@ const SingleNotification: React.FC<{ data: SingleNotificationProps[] }> = ({
                 {notification_icon}
               </div>
               <div className=" flex flex-col  text-left ml-2">
-                <p className="font-semibold text-sm text-secondary tracking-wide">
+                <p className="font-semibold text-sm text-secondary dark:text-primary-50 tracking-wide">
                   {notification_title}
                 </p>
-                <p className=" font-light text-xs tracking-tighter text-secondary-70 ">
+                <p className=" font-light text-xs tracking-tighter text-secondary-70  dark:text-primary-50">
                   {notification_subtitle}
                 </p>
               </div>
             </div>
             <div className="mr-1 truncate ">
-              <p className="font-light text-xs  text-left tracking-tighter text-secondary-70">
+              <p className="font-light text-xs  text-left tracking-tighter text-secondary-70 dark:text-primary-50">
                 {notification_time}
               </p>
             </div>

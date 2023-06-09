@@ -6,6 +6,8 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class", // added darkMode class
+
   theme: {
     extend: {
       fontSize: {
@@ -73,5 +75,7 @@ module.exports = {
       },
     },
   },
+  darkMode: "class",
+
   plugins: [],
 };

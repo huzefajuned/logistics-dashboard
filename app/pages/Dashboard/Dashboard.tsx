@@ -13,8 +13,8 @@ import {
   SingleNotificationProps,
 } from "@/app/interface/types";
 import { MoreOutlined, MessageOutlined } from "@ant-design/icons";
-
 import DashboardHeader from "@/app/components/DashboardHeader";
+import { ThemeProvider } from "next-themes";
 
 //dummy-Notifications---
 const notificationsData: SingleNotificationProps[] = [
@@ -207,6 +207,7 @@ const DriverDocumentsPropsData: CommonHeaderProps = {
 
 const Dashboard = () => {
   const [mount, setMount] = useState<boolean>(false);
+
   useEffect(() => {
     setMount(true);
   }, []);
@@ -214,20 +215,22 @@ const Dashboard = () => {
     return null;
   }
   return (
-    <div className="flex flex-row  max-w-[1440px] w-full max-h-[1090px] h-full">
-      <SideMenu />
-      <div className=" flex flex-col  pl-[40px] ">
-        <DashboardHeader />
-        <div className="flex flex-row  flex-wrap gap-[18px]">
-          <Maps />
-          <RecentNotifications {...RecentNotificationsPropsData} />
-          <RecentLoads {...RecentLoadsPropsData} />
-          <DriverManagement {...DriverManagementPropsData} />
-          <TruckDocuments {...TruckDocumentsPropsData} />
-          <DriverDocuments {...DriverDocumentsPropsData} />
+    <ThemeProvider attribute="class">
+      <div className="flex flex-row max-w-[1440px] w-full max-h-[1090px] h-full  bg-white dark:bg-[#2F3640]">
+        <SideMenu />
+        <div className="flex flex-col p-[40px]">
+          <DashboardHeader />
+          <div className="flex flex-row flex-wrap gap-[18px]">
+            <Maps />
+            <RecentNotifications {...RecentNotificationsPropsData} />
+            <RecentLoads {...RecentLoadsPropsData} />
+            <DriverManagement {...DriverManagementPropsData} />
+            <TruckDocuments {...TruckDocumentsPropsData} />
+            <DriverDocuments {...DriverDocumentsPropsData} />
+          </div>
         </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 };
 
