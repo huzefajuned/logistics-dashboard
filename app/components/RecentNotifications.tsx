@@ -9,10 +9,6 @@ const RecentNotifications: React.FC<RecentNotificationsProps> = ({
   title,
   icon,
   data,
-  // notification_icon,
-  // notification_subtitle,
-  // notification_title,
-  // notification_time,
 }) => {
   const [mount, setMount] = useState<boolean>(false);
   useEffect(() => {

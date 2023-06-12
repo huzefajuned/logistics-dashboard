@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ant-table-container {
+  @apply !bg-transparent;
+  /* @apply !overflow-visible */
+}
+.ant-table-header {
+  @apply !rounded-none;
+}
+/*  overeride  table-cell---- */
+
+.ant-table-cell {
+  @apply !bg-white !text-secondary dark:!bg-[#3C4454] !rounded-none 
+  !text-center !font-normal !text-xs dark:!text-white
+   !border-none;
+}
+
+.ant-table-cell::before {
+  @apply !hidden;
+}
+/*  overeride  table-head ---- */
+.ant-table-thead {
+  @apply !text-secondary  !border-none  !rounded-none;
+}
+
+/*  overeride  table-heading---- */
+.ant-table-thead > tr > th {
+  @apply !text-secondary !bg-[#FAFAFC] dark:!bg-[#525967]
+  !rounded-none !font-semibold !text-sm dark:!text-white;
+}
+
+/*  overeride  table-data {td}---- */
+.ant-table-thead > tr > td {
+  @apply !bg-white dark:!bg-[#3C4454] !text-secondary !rounded-none;
+}

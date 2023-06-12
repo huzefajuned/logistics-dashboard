@@ -36,13 +36,13 @@ const SingleNotification: React.FC<{ data: SingleNotificationProps[] }> = ({
                 <p className="font-semibold text-sm text-secondary dark:text-primary-50 tracking-wide">
                   {notification_title}
                 </p>
-                <p className=" font-light text-xs tracking-tighter text-secondary-70  dark:text-primary-50">
+                <p className=" font-light text-xs tracking-tighter text-secondary-70  dark:text-secondary-40">
                   {notification_subtitle}
                 </p>
               </div>
             </div>
             <div className="mr-1 truncate ">
-              <p className="font-light text-xs  text-left tracking-tighter text-secondary-70 dark:text-primary-50">
+              <p className="font-light text-xs  text-left tracking-tighter text-secondary-70">
                 {notification_time}
               </p>
             </div>

@@ -14,7 +14,7 @@ const SideMenu: React.FC<any> = () => {
     return null;
   }
   return (
-    <div className="w-[329px] sticky top-0 left-0 flex flex-row  h-[768px] text-center">
+    <div className="w-[329px] flex flex-row  h-[768px] text-center">
       <div className="w-[56px] bg-[#F1F4FF]">
         <p className="cursor-pointer mt-10">
           {currentTheme === "dark" ? (
