@@ -2,14 +2,13 @@
 import React, { useEffect, useState } from "react";
 import CommonHeader from "./CommonHeader";
 import { DriverDocumentsProps } from "../interface/types";
-import CommonSingleDocument from "./CommonTable";
+import CommonCustomTable from "./CommonCustomTable";
 
 const DriverDocuments: React.FC<DriverDocumentsProps> = ({
   heading,
   title,
   icon,
   data,
-  columns
 }) => {
   const [mount, setMount] = useState<boolean>(false);
   useEffect(() => {
@@ -22,10 +21,10 @@ const DriverDocuments: React.FC<DriverDocumentsProps> = ({
     <div
       className="w-[418px] h-[312px]
        text-center items-center justify-center border-[1px]
-        border-secondary-40  rounded-lg bg-white dark:bg-[#3C4454] dark:border-none"
+        border-secondary-40  rounded-lg bg-white dark:bg-[#3C4454] dark:border-none overflow-scroll"
     >
       <CommonHeader heading={heading} title={title} icon={icon} />
-      <CommonSingleDocument data={data}  columns={columns} />
+      <CommonCustomTable data={data} />
     </div>
   );
 };

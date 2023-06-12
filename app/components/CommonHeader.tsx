@@ -40,7 +40,11 @@ const CommonHeader: React.FC<CommonHeaderProps> = ({
 
       {isOpen && (
         <>
-          <div className="absolute rounded-[2px] flex flex-col  justify-center m-auto border-[1px] border-secondary-40  dark:border-none shadow-custom w-[134px] h-[104px] bg-white text-black right-4  top-12">
+          <div
+            className="absolute rounded-[2px] flex flex-col  justify-center m-auto border-[1px] border-secondary-40
+            dark:border-none shadow-custom w-[134px] h-[104px]
+             bg-white text-black right-4  top-12 z-auto dark:bg-[#2F3640] dark:text-white"
+          >
             <div className="flex flex-col justify-around   text-left  cursor-pointer">
               <p className="px-2 py-1  hover:text-primary-80  hover:bg-primary-60 transition font-normal text-[12px] ">
                 All Documents

@@ -20,7 +20,16 @@ export interface SingleNotificationProps {
   notification_icon?: React.ReactNode;
   notification_time: string;
 }
+
 // RecentLoads.tsx Component Inteface---
+export interface RecentLoadsProps {
+  heading: string;
+  title: string;
+  icon: any;
+  columns: RecentLoadsColumnsProps[];
+  data: RecentLoadsDataProps[];
+}
+// RecentLoads.tsx  table-data Inteface---
 export interface RecentLoadsDataProps {
   key: string;
   orderId: string;
@@ -34,7 +43,7 @@ export interface RecentLoadsColumnsProps {
   dataIndex: string;
   render?: any;
 }
-export interface RecentLoadsTableStatusColorMapProps {
+export interface RecentLoadsTableStatusColorProps {
   [key: string]: string;
 }
 
@@ -62,7 +71,7 @@ export interface DriverDocumentsProps {
   title: string;
   icon: any;
   data: CommonSingleDataProps[];
-  columns: CommonDocumentsColumnsProps;
+  // columns: CommonDocumentsColumnsProps;
 }
 
 // TruckDocuments.tsx Component Inteface---
@@ -71,7 +80,7 @@ export interface TruckDocumentsProps {
   title: string;
   icon: any;
   data: CommonSingleDataProps[];
-  columns: CommonDocumentsColumnsProps;
+  // columns: CommonDocumentsColumnsProps;
 }
 
 export interface documentStatusColorProps {
