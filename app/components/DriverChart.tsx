@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart, ArcElement, Tooltip, Legend, plugins } from "chart.js";
@@ -7,7 +8,10 @@ interface DoughnutChartProps {
   labels: string[];
 }
 
-const DriverChart: React.FC<DoughnutChartProps> = ({ data, labels }) => {
+const DriverChart: React.FC<DoughnutChartProps> = ({
+  data,
+  labels,
+}: DoughnutChartProps) => {
   const [mount, setMount] = useState<boolean>(false);
 
   useEffect(() => {
@@ -18,69 +22,55 @@ const DriverChart: React.FC<DoughnutChartProps> = ({ data, labels }) => {
     return null;
   }
 
-  const chartData = {
-    type: "doughnut",
+  const datasets: any = {
+    labels: labels,
     datasets: [
       {
         data: data,
-        backgroundColor: ["rgba(236, 0, 72, 1)", "rgba(0, 177, 12, 1)"],
-        // usePointStyle: "circle",
-        // Add other dataset properties as needed
+        backgroundColor: ["#00B10C", "#EC0048"],
       },
     ],
-
-    options: {
-      responsive: true,
-      plugins: {
-        tooltip: {
-          callbacks: {
-            label: (context: any) => {
-              const label = context.label || "";
-              const value = context.parsed || 0;
-              return `${label}: ${value}%`;
-            },
-          },
-        },
-        legend: {
-          dataLabels: {
-            enabled: true,
-          },
-          // display: true,
-          // usePointStyle: "cicle",
-          // Hide legend if not needed
-        },
-      },
-    },
-    labels: labels,
   };
 
-  // const options = {
-  //   responsive: true,
-  //   plugins: {
-  //     tooltip: {
-  //       callbacks: {
-  //         label: (context: any) => {
-  //           const label = context.label || "";
-  //           const value = context.parsed || 0;
-  //           return `${label}: ${value}%`;
-  //         },
-  //       },
-  //     },
-  //     legend: {
-  //       display: true,
-  //       usePointStyle: "cicle",
-  //       // Hide legend if not needed
-  //     },
-  //   },
-  // };
+  const options: any = {
+    plugins: {
+      legend: {
+        display: true,
+        labels: {
+          usePointStyle: true,
+          margin: 20, // Adjust the padding around each legend label
+
+          font: {
+            size: 12, // Adjust the font size of the legend labels
+          },
+        },
+        position: "bottom",
+        align: "middle",
+        boxWidth: 100,
+      },
+    },
+    elements: {
+      point: {
+        rotation: 90,
+        borderWidth: 1,
+        borderColor: "#fff",
+      },
+    },
+    layout: {
+      padding: {
+        bottom: 0,
+      },
+    },
+  };
 
   return (
-    <Doughnut
-      data={chartData}
-      // options={options}
-
-      className="m-auto justify-center items-center text-center w-[220px] h-[220px]"
-    />
+    <div className="flex flex-row m-auto justify-center items-center w-[300px] h-[200px]">
+      <Doughnut
+        data={datasets}
+        options={options}
+        className="w-[140px] h-[140px]"
+      />
+    </div>
   );
 };
 

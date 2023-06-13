@@ -5,7 +5,6 @@ import { useTheme } from "next-themes";
 const SideMenu: React.FC<any> = () => {
   const { theme, setTheme } = useTheme();
   const currentTheme = theme;
-  console.log("currentTheme", currentTheme);
   const [mount, setMount] = useState<boolean>(false);
   useEffect(() => {
     setMount(true);

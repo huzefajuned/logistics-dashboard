@@ -3,6 +3,10 @@ export interface CommonHeaderProps {
   heading: string;
   title: string;
   icon: any;
+  canToggle?: boolean;
+  onToggleMenu?: () => void;
+  isOpen?: boolean;
+  onApplyFilter?: (selctedItem: string) => void;
 }
 
 // RecentNotifications.tsx Component Inteface---
@@ -70,8 +74,8 @@ export interface DriverDocumentsProps {
   heading: string;
   title: string;
   icon: any;
+  canToggle: boolean;
   data: CommonSingleDataProps[];
-  // columns: CommonDocumentsColumnsProps;
 }
 
 // TruckDocuments.tsx Component Inteface---
@@ -79,8 +83,8 @@ export interface TruckDocumentsProps {
   heading: string;
   title: string;
   icon: any;
+  canToggle?: boolean;
   data: CommonSingleDataProps[];
-  // columns: CommonDocumentsColumnsProps;
 }
 
 export interface documentStatusColorProps {
@@ -93,6 +97,7 @@ export interface DriverManagementProps {
   heading: string;
   title: string;
   icon: any;
+  canToggle: boolean;
   chartData: number[];
   chartLabels: string[];
 }
