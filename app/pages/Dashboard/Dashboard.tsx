@@ -103,7 +103,7 @@ const Dashboard = () => {
 
   // dummy-chartData & chartLabels
   const chartData = [92, 8];
-  const chartLabels = ["Available", "Unavailable"];
+  const chartLabels = ["Available Drivers ", "Unavailable Drivers"];
 
   const DriverManagementPropsData: DriverManagementProps = {
     heading: "Driver Management",

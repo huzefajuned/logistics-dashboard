@@ -1,17 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Doughnut } from "react-chartjs-2";
-import { Chart, ArcElement, Tooltip, Legend, plugins } from "chart.js";
-Chart.register(ArcElement, Tooltip, Legend);
-interface DoughnutChartProps {
-  data: number[];
-  labels: string[];
-}
+import ReactApexChart from "react-apexcharts";
+// interface DoughnutChartProps {
+//   data: number[];
+//   labels: string[];
+// }
 
-const DriverChart: React.FC<DoughnutChartProps> = ({
-  data,
-  labels,
-}: DoughnutChartProps) => {
+const DriverChart: React.FC<any> = ({ data, labels }: any) => {
   const [mount, setMount] = useState<boolean>(false);
 
   useEffect(() => {
@@ -22,53 +17,34 @@ const DriverChart: React.FC<DoughnutChartProps> = ({
     return null;
   }
 
-  const datasets: any = {
+  const series = data;
+
+  const chartOptions: any = {
+    options: {
+      chart: {
+        type: "donut",
+      },
+    },
+    colors: ["#00B10C", "#EC0048"],
+
     labels: labels,
-    datasets: [
-      {
-        data: data,
-        backgroundColor: ["#00B10C", "#EC0048"],
-      },
-    ],
-  };
 
-  const options: any = {
-    plugins: {
-      legend: {
-        display: true,
-        labels: {
-          usePointStyle: true,
-          margin: 20, // Adjust the padding around each legend label
-
-          font: {
-            size: 12, // Adjust the font size of the legend labels
-          },
-        },
-        position: "bottom",
-        align: "middle",
-        boxWidth: 100,
-      },
+    dataLabels: {
+      enabled: true,
+      position: "bottom",
     },
-    elements: {
-      point: {
-        rotation: 90,
-        borderWidth: 1,
-        borderColor: "#fff",
-      },
-    },
-    layout: {
-      padding: {
-        bottom: 0,
-      },
+    legend: {
+      position: "bottom",
     },
   };
 
   return (
-    <div className="flex flex-row m-auto justify-center items-center w-[300px] h-[200px]">
-      <Doughnut
-        data={datasets}
-        options={options}
-        className="w-[140px] h-[140px]"
+    <div className="flex flex-col m-auto justify-center items-center w-[300px] h-[200px]  ">
+      <ReactApexChart
+        // width={240}
+        options={chartOptions}
+        series={series}
+        type="donut"
       />
     </div>
   );

@@ -30,7 +30,8 @@ const RecentLoads: React.FC<RecentLoadsProps> = ({
         tableLayout="auto"
         size="middle"
         bordered={false}
-        // scroll={{ y: 190, x: "100%", }}
+        style={{ margin: 2, backgroundColor: "blue" }}
+        scroll={{ y: 190, x: "100%", scrollToFirstRowOnChange: true }}
         pagination={false}
       />
     </div>
