@@ -26,7 +26,7 @@ const CommonCustomTable: React.FC<{ data: CommonCustomTableProps[] }> = ({
         <p>Documents</p>
         <p>Expire On</p>
       </div>
-      <div className=" h-[200px] overflow-scroll">
+      <div className=" h-[200px] overflow-scroll no-scrollbar">
         {data.map((entry, index: number) => {
           return (
             <div key={index} className=" flex flex-row justify-between items-center text-center  p-3">

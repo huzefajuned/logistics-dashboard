@@ -35,3 +35,20 @@
 .ant-table-thead > tr > td {
   @apply !bg-white dark:!bg-[#3C4454] !text-secondary !rounded-none;
 }
+
+/* add this code for hiding overflow-scroll scrollbar */
+
+@layer utilities {
+  @layer responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
+}
